@@ -15,7 +15,8 @@ function All() {
 
     useEffect(() => {
         fetch_all_data();
-    }, [fetch_all_data])
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [])
 
     // console.log("data stor from user info front end", data_store?.data?.data);
 
@@ -30,20 +31,9 @@ function All() {
                     <table className="table table-hover table-bordered">
                         <thead>
                             <tr>
-                                <th><input type="checkbox" className="form-check-input" /></th>
-
-
-
-
-                                <th className="cursor_n_resize edit_cursor_n_resize">
-                                    User work title
-                                </th>
+                                {/* <th><input type="checkbox" className="form-check-input" /></th> */}
                                 <th className="cursor_n_resize edit_cursor_n_resize">
                                     Title
-                                </th>
-
-                                <th className="cursor_n_resize edit_cursor_n_resize">
-                                    Status
                                 </th>
                                 <th aria-label="actions">Actions</th>
                             </tr>
@@ -53,22 +43,11 @@ function All() {
                             {
                                 data_store?.data && data_store?.data?.data?.map(item => {
                                     return <tr key={item.id}>
-                                        <td><input type="checkbox" className="form-check-input" /></td>
-
-
+                                        {/* <td><input type="checkbox" className="form-check-input" /></td> */}
                                         <td>
                                             <span>
-                                            {item?.user_work?.title}
+                                                {item.title}
                                             </span>
-                                        </td>
-                                        <td>
-                                            <span>
-                                            {item.title}
-                                            </span>
-                                        </td>
-
-                                        <td>
-                                            <span>Active</span>
                                         </td>
                                         <td>
                                             <span className='edit_class_submanu_active'><i className="mdi mdi-format-list-bulleted"></i>
@@ -83,18 +62,16 @@ function All() {
                                                         {/* <li>
                                                             <Link to="/dashboard/user-work-department/edit">Deactive</Link>
                                                         </li> */}
-                                                                                            {
-                                                            item.status === 1 ?
+                                                        {
+                                                            item.status === true ?
                                                                 <li>
                                                                     <a className="" href="/#/" onClick={(event) => { event.preventDefault(); delete_data(item.id) }}>
-
                                                                         Deactive
                                                                     </a>
                                                                 </li>
                                                                 :
                                                                 <li>
                                                                     <a className="" href="/#/" onClick={(event) => { event.preventDefault(); restore_data(item.id) }}>
-
                                                                         Restore
                                                                     </a>
                                                                 </li>

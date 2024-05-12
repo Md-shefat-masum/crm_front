@@ -18,7 +18,8 @@ function All() {
 
     useEffect(() => {
         fetch_all_data();
-    }, [fetch_all_data])
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [])
 
     console.log("data stor from user info front end", data_store?.data?.data);
 

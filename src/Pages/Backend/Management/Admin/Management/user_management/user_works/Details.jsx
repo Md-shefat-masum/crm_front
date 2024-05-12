@@ -18,9 +18,9 @@ function Details() {
         return () => {
             set_data(null)
         };
-    }, [get_users, set_data, id]);
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, []);
 
-    console.log(data_store, id);
     if (data_store) {
         const { title } = data_store;
         return (

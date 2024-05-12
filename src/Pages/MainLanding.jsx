@@ -82,7 +82,7 @@ function MainLanding() {
         fetch_upcoming_customer();
         // console.log("data stroe from user end", data_store);
     }, [fetch_all_customer, fetch_pending_customer, fetch_interested_customer, fetch_upcoming_customer])
-    console.log('log data_store', data_store);
+    // console.log('log data_store', data_store);
     let upcoming = data_store.upcoming_customer;
     // console.log('upcoming ', upcoming);
     // const [aaa, setaaa] = useState([...upcoming])
@@ -496,7 +496,7 @@ function MainLanding() {
                                                             <th style={{ "width": "20px" }}>
                                                                 <div className="form-check font-size-16 align-middle">
                                                                     <input className="form-check-input" type="checkbox" id="transactionCheck01" />
-                                                                    <label className="form-check-label" for="transactionCheck01"></label>
+                                                                    <label className="form-check-label" htmlFor="transactionCheck01"></label>
                                                                 </div>
                                                             </th>
                                                             <th className="align-middle">ID</th>
@@ -517,7 +517,7 @@ function MainLanding() {
                                                                     <td>
                                                                         <div className="form-check font-size-16">
                                                                             <input className="form-check-input" type="checkbox" id="transactionCheck02" />
-                                                                            <label className="form-check-label" for="transactionCheck02"></label>
+                                                                            <label className="form-check-label" htmlFor="transactionCheck02"></label>
                                                                         </div>
                                                                     </td>
                                                                     <td><a href="/#/" onClick={(e) => { e.preventDefault(); }} className="text-body fw-bold">{item.id}</a> </td>

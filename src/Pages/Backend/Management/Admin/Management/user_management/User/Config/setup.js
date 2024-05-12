@@ -37,7 +37,6 @@ setup.set_async = function (async_actions, dataStoreSlice) {
     setup.actions.get_users = async (id) => await setup.dispatch(async_actions[`details_${setup.prefix}`](id))
     // get user
 
-// copy...
     // delete & restore data
     setup.actions.delete_data = async (id) => await setup.dispatch(async_actions[`delete_data`](id))
     setup.actions.restore_data = async (id) => await setup.dispatch(async_actions[`restore_data`](id))

@@ -26,21 +26,11 @@ function Header(props) {
                     <div className="d-flex">
                         <div className={`navbar-brand-box ${isSidebarOpen ? 'openside' : 'closeside'}`}>
                             {/* <a >sjlfjdsl</a> */}
-                            <a href="index.html" className="logo logo-dark">
-                                <span className="logo-sm">
-                                    <img src="assets/images/logo.svg" alt="" height={22} />
-                                </span>
-                                <span className="logo-lg">
-                                    <img src="assets/images/logo-dark.png" alt="" height={19} />
-                                </span>
+                            <a href="/#/dashboard" className="logo logo-dark">
+                                CRM
                             </a>
-                            <a href="index.html" className="logo logo-light">
-                                <span className="logo-sm">
-                                    <img src="assets/images/logo-light.svg" alt="" height={22} />
-                                </span>
-                                <span className="logo-lg">
-                                    <img src="assets/images/logo-light.png" alt="" height={19} />
-                                </span>
+                            <a href="/#/dashboard" className="logo logo-light">
+                                CRM
                             </a>
                         </div>
                         <button

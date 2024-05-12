@@ -26,7 +26,7 @@ function Login() {
 
                 // return;
 
-                if (res?.data?.data?.role === 'employee') {
+                if (['admin', 'employee'].includes(res?.data?.data?.role)) {
                     localStorage.setItem('token', token)
                     return navigate("/dashboard");
 
@@ -59,21 +59,21 @@ function Login() {
 
                             {/* form_area_start */}
                             <form onSubmit={(event) => loginSubmit(event)} method="POST" action="/api/login-submit" >
-                                <div class="input_area">
+                                <div className="input_area">
                                     {/* email area start */}
-                                    <div class="icon_and_input_text_area">
+                                    <div className="icon_and_input_text_area">
 
-                                        <div class="input_text_area">
+                                        <div className="input_text_area">
                                             <input name='email' type="email" className="input_text" placeholder="Email . . ." />
                                         </div>
                                     </div>
                                     {/* email area end */}
 
                                     {/* password area start */}
-                                    <div class="icon_and_input_text_area">
+                                    <div className="icon_and_input_text_area">
 
-                                        <div class="input_text_area">
-                                            <input name='password' type="password" class="input_text" placeholder="Enter your password . . ." />
+                                        <div className="input_text_area">
+                                            <input name='password' type="password" className="input_text" placeholder="Enter your password . . ." />
                                         </div>
                                     </div>
                                     {/* password area end */}

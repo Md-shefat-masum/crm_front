@@ -39,7 +39,7 @@ setup.set_async = function (async_actions, dataStoreSlice) {
     // updated data
     setup.actions.update_data = async (form_data) => await setup.dispatch(async_actions[`edit_${setup.prefix}`](form_data))
 
-    setup.actions.get_users = async (id) => await setup.dispatch(async_actions[`details_${setup.prefix}`](id))
+    setup.actions.get_data = async (id) => await setup.dispatch(async_actions[`details_${setup.prefix}`](id))
     setup.actions.set_page_limit = (limit = 10) => setup.dispatch(dataStoreSlice['actions'][`set_page_limit`](limit));
     setup.actions.set_search_key = (search_key = '') => setup.dispatch(dataStoreSlice['actions'][`set_search_key`](search_key));
 }

@@ -16,7 +16,7 @@ function All() {
 
     useEffect(() => {
         fetch_all_data();
-    }, [fetch_all_data])
+    }, [])
 
     // console.log("data stor from user info front end", data_store?.data?.data);
 

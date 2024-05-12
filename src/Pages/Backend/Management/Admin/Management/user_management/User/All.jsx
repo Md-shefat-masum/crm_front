@@ -13,17 +13,14 @@ function All() {
     setup.dispatch = useDispatch();
     setup.set_async(async_actions, dataStoreSlice);
 
-    // copy...
     const { fetch_all_data, delete_data, restore_data } = setup.actions;
 
     useEffect(() => {
         fetch_all_data();
-    }, [fetch_all_data])
-
-    console.log("data stroe from user end", data_store);
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, []);
 
     return (
-
         <>
             <div className="card list_card">
                 <div className="card-header px-0">
@@ -33,8 +30,8 @@ function All() {
                     <table className="table table-hover table-bordered">
                         <thead>
                             <tr>
-                                <th><input type="checkbox" className="form-check-input" /></th>
-                               
+                                {/* <th><input type="checkbox" className="form-check-input" /></th> */}
+
                                 <th className="cursor_n_resize edit_cursor_n_resize">
                                     Username
                                 </th>
@@ -52,8 +49,8 @@ function All() {
                             {
                                 data_store?.data && data_store?.data?.data?.map(item => {
                                     return <tr key={item.id}>
-                                        <td><input type="checkbox" className="form-check-input" /></td>
-                                      
+                                        {/* <td><input type="checkbox" className="form-check-input" /></td> */}
+
                                         <td>
                                             <span>
                                                 {item.user_name}
@@ -80,12 +77,8 @@ function All() {
                                                         <li>
                                                             <Link to={`/dashboard/user/details/${item.id}`}>Details</Link>
                                                         </li>
-                                                        {/* <li>
-                                                            <Link to="/dashboard/user/edit">Deactive</Link>
-                                                        </li> */}
-                                                        {/* copy... */}
                                                         {
-                                                            item.status === 1 ?
+                                                            [1, '1', true].includes(item.status) ?
                                                                 <li>
                                                                     <a href="/#/" onClick={(event) => { event.preventDefault(); delete_data(item.id) }}>
 

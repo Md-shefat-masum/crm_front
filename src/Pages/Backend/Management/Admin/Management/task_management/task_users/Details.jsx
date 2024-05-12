@@ -75,7 +75,7 @@ function Details() {
                                                     return <ul className=''>
                                                         <li className='input_and_label '>
                                                             <input type="checkbox" id="" name="" value="" />
-                                                            <label for="">{item.task.title}</label>
+                                                            <label htmlFor="">{item.task.title}</label>
                                                         </li>
                                                         <li className=''>
                                                             <span>Created: {moment(item?.task?.end_time).format('MMM Do YY')}</span>

@@ -71,16 +71,10 @@ export const async_actions = {
     [`edit_${store_prefix}`]: createAsyncThunk(
         `user/edit_${store_prefix}`,
         async (form_data, thunkAPI) => {
-            console.log('hoiche');
             try {
                 const response = await axios.post(`/${api_prefix}/update`, form_data);
-                // thunkAPI.dispatch(storeSlice.actions.my_action())
-                // console.log(response);
-                return response;
+                return response.data;
             } catch (error) {
-                // console.log(error);
-                // console.log(error.response?.data?.data?.keyValue?.[key]);
-                // console.log(error.response?.status);
                 window.render_alert(error)
 
             }
@@ -95,8 +89,7 @@ export const async_actions = {
             try {
                 const response = await axios.get(`/${api_prefix}/details/${id}`);
                 // thunkAPI.dispatch(storeSlice.actions.my_action())
-                console.log(response);
-                return response;
+                return response.data;
             } catch (error) {
                 // console.log(error);
                 // console.log(error.response?.data?.data?.keyValue?.[key]);
@@ -115,7 +108,7 @@ export const async_actions = {
                 const response = await axios.post(`/${api_prefix}/delete`, {id} );
                 thunkAPI.dispatch(async_actions.fetch_all_data());
                 // console.log('response from deltee', response);
-                return response;
+                return response.data;
             } catch (error) {
                 return error;
             }
@@ -128,7 +121,7 @@ const storeSlice = createSlice({
     initialState: {
         data: {},
         user_work: {},
-        user_work_department: {},
+        user_work_department: [],
         singleData: {},
         page_limit: 10,
         search_key: '',
@@ -155,7 +148,7 @@ const storeSlice = createSlice({
             })
             .addCase(async_actions[`details_${store_prefix}`].fulfilled, (state, { type, payload, meta }) => {
                 // console.log('payload data', payload.data);
-                state[`singleData`] = payload.data;
+                state[`singleData`] = payload;
             })
     },
 })

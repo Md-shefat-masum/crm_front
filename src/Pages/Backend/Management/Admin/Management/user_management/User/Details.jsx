@@ -15,16 +15,15 @@ function Details() {
     // console.log(id);
     useEffect(() => {
         get_users(id);
-
         return () => {
             set_data(null)
         };
-    }, [get_users, id, set_data]);
-
-    console.log(data_store, id);
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, []);
 
     if (data_store) {
-        const { id, user_name, role, email, createdAt, updatedAt } = data_store;
+        const { user_uid, user_name, role, email } = data_store;
+        let user_info = data_store.user_info || {};
         return (
             <div className='card list_card'>
                 <div className="card-header ">
@@ -40,14 +39,42 @@ function Details() {
                 <div className="card-body">
                     <div className="container py-5">
                         <div className="row">
-                            <div className="col-lg-8">
-
+                            <div className="col-xl-8">
+                                <h2 className='mb-3 text-info'>User Informations</h2>
                                 <div className="form-group mb-3">
                                     <div className="custom_form_el">
                                         <div>Id</div>
                                         <div>:</div>
                                         <div>
-                                            {id}
+                                            {user_uid}
+                                        </div>
+                                    </div>
+                                    <div className="custom_form_el">
+                                        <div>Role</div>
+                                        <div>:</div>
+                                        <div>
+                                            {role}
+                                        </div>
+                                    </div>
+                                    <div className="custom_form_el">
+                                        <div>Designation</div>
+                                        <div>:</div>
+                                        <div>
+                                            {user_info.designation}
+                                        </div>
+                                    </div>
+                                    <div className="custom_form_el">
+                                        <div>First Name</div>
+                                        <div>:</div>
+                                        <div>
+                                            {user_info.first_name}
+                                        </div>
+                                    </div>
+                                    <div className="custom_form_el">
+                                        <div>Last Name</div>
+                                        <div>:</div>
+                                        <div>
+                                            {user_info.first_name}
                                         </div>
                                     </div>
                                     <div className="custom_form_el">
@@ -57,8 +84,6 @@ function Details() {
                                             {user_name}
                                         </div>
                                     </div>
-
-
                                     <div className="custom_form_el">
                                         <div>Email</div>
                                         <div>:</div>
@@ -66,33 +91,22 @@ function Details() {
                                             {email}
                                         </div>
                                     </div>
-
-
                                     <div className="custom_form_el">
-                                        <div>Role</div>
+                                        <div>Phone number</div>
                                         <div>:</div>
                                         <div>
-                                            {role}
-                                        </div>
-                                    </div>
-
-
-                                    <div className="custom_form_el">
-                                        <div>Created At</div>
-                                        <div>:</div>
-                                        <div>
-                                            {moment(createdAt).format('YYYY-MM-DD')}
+                                            {user_info.phone_number}
                                         </div>
                                     </div>
                                     <div className="custom_form_el">
-                                        <div>Updated At</div>
+                                        <div>Date of Birth</div>
                                         <div>:</div>
                                         <div>
-                                            {moment(updatedAt).format('YYYY-MM-DD')}
+                                            {moment(user_info.date_of_birth).format('DD MMM, YYYY')}
                                         </div>
                                     </div>
+
                                 </div>
-
                             </div>
                         </div>
                     </div>

@@ -15,7 +15,8 @@ function All() {
 
     useEffect(() => {
         fetch_all_data();
-    }, [fetch_all_data])
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [])
 
     console.log("data stor from user info front end", data_store?.data?.data);
     return (
@@ -29,7 +30,7 @@ function All() {
                     <table className="table table-hover table-bordered">
                         <thead>
                             <tr>
-                                <th><input type="checkbox" className="form-check-input" /></th>
+                                {/* <th><input type="checkbox" className="form-check-input" /></th> */}
 
                                 <th className="cursor_n_resize edit_cursor_n_resize">
                                     Title
@@ -46,7 +47,7 @@ function All() {
                             {
                                 data_store?.data && data_store?.data?.data?.map(item => {
                                     return <tr key={item.id}>
-                                        <td><input type="checkbox" className="form-check-input" /></td>
+                                        {/* <td><input type="checkbox" className="form-check-input" /></td> */}
 
                                         <td>
                                             <span>
@@ -71,7 +72,7 @@ function All() {
                                                             <Link to="/dashboard/user-work/edit">Deactive</Link>
                                                         </li> */}
                                                         {
-                                                            item.status === 1 ?
+                                                            item.status === true ?
                                                                 <li>
                                                                     <a href="/#/" onClick={(event) => { event.preventDefault(); delete_data(item.id) }}>
 

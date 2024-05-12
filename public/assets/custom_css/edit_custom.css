@@ -1,18 +1,25 @@
-.list_card .table > :not(caption) > * > * {
+.list_card .table> :not(caption)>*>* {
     color: white;
 }
-.list_card .table tbody > :not(caption) > * > * {
+
+.list_card .table tbody> :not(caption)>*>* {
     color: #334155;
 }
+
 .edit_class_submanu_active {
     position: relative;
 }
+
 .edit_class_submanu_active:hover .edit_class_submanu {
-    display: block;
+    opacity: 1;
+    visibility: visible;
 }
+
 .edit_class_submanu {
-    display: none;
+    opacity: 0;
+    visibility: hidden;
 }
+
 .edit_class_submanu ul {
     text-align: left;
     width: 190px;
@@ -25,16 +32,19 @@
     right: 18px;
     z-index: 1;
 }
+
 .edit_class_submanu ul li {
     color: #334155;
     /* padding: 8px 0px; */
     font-size: 16px;
 }
+
 .edit_class_submanu ul li:hover {
     background-color: #4d71a35e;
     padding-left: 10px;
     transition-duration: 0.4s;
 }
+
 .edit_class_submanu ul li a {
     padding: 8px 0px;
     width: 100%;
@@ -45,28 +55,32 @@
     padding-bottom: 18px;
     text-transform: capitalize;
 }
+
 .list_card .card-header .search {
     border: 1px solid #4d71a35e;
     border-radius: 4px;
 }
+
 .search input {
     font-size: 14px;
     min-width: 300px;
 }
 
-.tag-list_and_task-list_area {
-}
+.tag-list_and_task-list_area {}
+
 .tag-list_and_task-list_area .tag_list {
     border-bottom: 2px solid #d0c4c4;
 }
+
 .tag-list_and_task-list_area .tag_list ul {
     display: flex;
     gap: 10px;
     flex-wrap: wrap;
     padding-bottom: 30px;
 }
-.tag-list_and_task-list_area .tag_list ul li {
-}
+
+.tag-list_and_task-list_area .tag_list ul li {}
+
 .tag-list_and_task-list_area .tag_list ul li a {
     border: 1px solid #d0c4c4;
     padding: 2px 10px;
@@ -76,52 +90,61 @@
     text-transform: capitalize;
     transition-duration: 0.4s;
 }
+
 .tag-list_and_task-list_area .tag_list ul li a:hover {
     background-color: turquoise;
 }
+
 .tag-list_and_task-list_area .task-list {
     margin-top: 30px;
     gap: 20px;
     display: grid;
 }
+
 .tag-list_and_task-list_area .task-list ul {
     display: flex;
     justify-content: space-between;
     align-items: center;
     flex-wrap: wrap;
 }
-.tag-list_and_task-list_area .task-list ul .variant{
+
+.tag-list_and_task-list_area .task-list ul .variant {
     display: flex;
     flex-direction: row;
 }
+
 .tag-list_and_task-list_area .task-list ul .input_and_label {
     display: flex;
     align-items: baseline;
 }
-.tag-list_and_task-list_area .task-list > ul > li:nth-child(1) {
+
+.tag-list_and_task-list_area .task-list>ul>li:nth-child(1) {
     /* flex: 1; */
     width: 200px;
 }
-.tag-list_and_task-list_area .task-list > ul > li:nth-child(2) {
+
+.tag-list_and_task-list_area .task-list>ul>li:nth-child(2) {
     /* width: 150px; */
 }
-.tag-list_and_task-list_area .task-list > ul > li:nth-child(3) {
+
+.tag-list_and_task-list_area .task-list>ul>li:nth-child(3) {
     /* width: 350px; */
 }
 
 .tag-list_and_task-list_area .task-list ul li input {
     margin-right: 10px;
 }
-.tag-list_and_task-list_area .task-list ul li label {
-}
-.tag-list_and_task-list_area .task-list ul li span {
-}
+
+.tag-list_and_task-list_area .task-list ul li label {}
+
+.tag-list_and_task-list_area .task-list ul li span {}
+
 .tag-list_and_task-list_area .task-list ul li ul {
     gap: 10px;
 }
 
-.tag-list_and_task-list_area .task-list ul li ul li {
-}
+.tag-list_and_task-list_area .task-list ul li ul li {}
+
 .tag-list_and_task-list_area .task-list ul li ul li a {
     padding: 2px 10px;
     border-radius: 20px;
@@ -153,32 +176,37 @@
     height: 100vh;
     background-color: #948aff;
 }
+
 .login_page .login_page_content {
     align-items: center;
     display: flex;
     height: 100vh;
     justify-content: end;
 }
+
 .login_page .login_page_content .login_form_all_content {
     width: 300px;
     background-color: white;
     padding: 30px 20px;
     border-radius: 3px;
 }
-.login_page .login_page_content .login_form_all_content .form_logo {
-}
+
+.login_page .login_page_content .login_form_all_content .form_logo {}
+
 .login_page .login_page_content .login_form_all_content .form_logo img {
     width: 160px;
     /* height: 100px; */
     object-fit: contain;
     margin-bottom: 20px;
 }
+
 .login_page .login_page_content .login_form_all_content .form_title {
     border-bottom: 1px solid #3341552b;
     padding-bottom: 20px;
     border-top: 1px solid #3341552b;
     padding-top: 20px;
 }
+
 .login_page .login_page_content .login_form_all_content .form_title .title_text {
     font-size: 18px;
     font-weight: bold;
@@ -189,32 +217,28 @@
 .login_page .login_page_content .login_form_all_content form {
     margin-top: 20px;
 }
+
 .login_page .login_page_content .login_form_all_content form .input_area {
     gap: 18px;
     display: grid;
 }
+
 /* email and password area start  */
-.login_page .login_page_content .login_form_all_content form .input_area .icon_and_input_text_area {
-}
-.login_page .login_page_content .login_form_all_content form .input_area .icon_and_input_text_area .icon_area {
-}
-.login_page .login_page_content .login_form_all_content form .input_area .icon_and_input_text_area .icon_area i {
-}
-.login_page .login_page_content .login_form_all_content form .input_area .icon_and_input_text_area .input_text_area {
-}
-.login_page
-    .login_page_content
-    .login_form_all_content
-    form
-    .input_area
-    .icon_and_input_text_area
-    .input_text_area
-    input {
+.login_page .login_page_content .login_form_all_content form .input_area .icon_and_input_text_area {}
+
+.login_page .login_page_content .login_form_all_content form .input_area .icon_and_input_text_area .icon_area {}
+
+.login_page .login_page_content .login_form_all_content form .input_area .icon_and_input_text_area .icon_area i {}
+
+.login_page .login_page_content .login_form_all_content form .input_area .icon_and_input_text_area .input_text_area {}
+
+.login_page .login_page_content .login_form_all_content form .input_area .icon_and_input_text_area .input_text_area input {
     border: 0px;
     border-bottom: 1px solid #334155;
     outline: 0;
     width: 100%;
 }
+
 /* email and password area end  */
 /* login_button_area start */
 .login_page .login_page_content .login_form_all_content form .input_area .login_button_area {
@@ -222,6 +246,7 @@
     border-top: 1px solid #3341552b;
     padding-top: 20px;
 }
+
 .login_page .login_page_content .login_form_all_content form .input_area .login_button_area .login_button {
     width: 100%;
     padding: 3px;
@@ -232,56 +257,56 @@
     transition-duration: 0.4s;
     border-radius: 3px;
 }
+
 .login_page .login_page_content .login_form_all_content form .input_area .login_button_area .login_button:hover {
     background-color: #e61e25;
     color: white;
 }
+
 /* login_button_area end */
 /* login page end */
 
 /* home_page start */
-.home_page{
+.home_page {
     /* background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
      */
-    background: rgb(52,29,100);
-background: linear-gradient(315deg, rgba(52,29,100,1) 29%, rgba(73,144,170,1) 100%);
-height: 100vh;
+    background: rgb(52, 29, 100);
+    background: linear-gradient(315deg, rgba(52, 29, 100, 1) 29%, rgba(73, 144, 170, 1) 100%);
+    height: 100vh;
 }
-.home_page .home_page_content{
 
-}
+.home_page .home_page_content {}
+
 /* header_area start */
-.home_page .home_page_content{
+.home_page .home_page_content {}
 
-}
-.home_page .home_page_content .header_area{
+.home_page .home_page_content .header_area {
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 10px 0px;
 
 }
-.home_page .home_page_content .header_area .left_area{
 
-}
-.home_page .home_page_content .header_area .left_area img{
+.home_page .home_page_content .header_area .left_area {}
+
+.home_page .home_page_content .header_area .left_area img {
     width: 200px;
     object-fit: contain;
 }
 
-.home_page .home_page_content .header_area .right_area{
+.home_page .home_page_content .header_area .right_area {}
 
-}
-.home_page .home_page_content .header_area .right_area ul{
+.home_page .home_page_content .header_area .right_area ul {
     display: flex;
     gap: 25px;
 }
-.home_page .home_page_content .header_area .right_area ul li{
 
-}
-.home_page .home_page_content .header_area .right_area ul li .menu_text{
+.home_page .home_page_content .header_area .right_area ul li {}
+
+.home_page .home_page_content .header_area .right_area ul li .menu_text {
     font-size: 16px;
     font-weight: 700;
     text-transform: capitalize;
@@ -291,51 +316,59 @@ height: 100vh;
     padding: 1px 10px;
     transition-duration: .4s;
 }
-.home_page .home_page_content .header_area .right_area ul li .menu_text:hover{
+
+.home_page .home_page_content .header_area .right_area ul li .menu_text:hover {
     color: #e61e25;
     border: 1px solid #e61e25;
-    
+
 }
+
 /* header_area end */
 
 /* banner_area start */
-.home_page .home_page_content .banner_area{
+.home_page .home_page_content .banner_area {
     justify-content: end;
     display: flex;
     align-items: center;
     height: calc(100vh - 260px);
     /* background-color: #ffffffd4; */
 }
-.home_page .home_page_content .banner_area .banner_text{
+
+.home_page .home_page_content .banner_area .banner_text {
     text-align: end;
 
 }
-.home_page .home_page_content .banner_area .banner_text .sub_title_text{
+
+.home_page .home_page_content .banner_area .banner_text .sub_title_text {
     font-size: 35px;
     font-weight: bold;
     text-transform: capitalize;
     color: #1edde6;
 }
-.home_page .home_page_content .banner_area .banner_text .title_text{
+
+.home_page .home_page_content .banner_area .banner_text .title_text {
     font-size: 60px;
     font-weight: bold;
     text-transform: capitalize;
     padding: 0px 0px;
     color: #ffffff;
 }
+
 /* banner_area end */
 /* home_page end */
-.input_message_container{
+.input_message_container {
     justify-content: center;
     display: flex;
 }
-.input_message_container form{
+
+.input_message_container form {
     width: 100%;
     justify-content: center;
     display: flex;
 
 }
-.input_message_container form .input_area{
+
+.input_message_container form .input_area {
     font-family: "roboto";
     background-color: #e3e3e3;
     border: 0px;
@@ -346,7 +379,8 @@ height: 100vh;
     color: #334155;
     width: 50%;
 }
-.input_message_container form .button_area{
+
+.input_message_container form .button_area {
     background-color: #9090e7;
     width: 38px;
     height: 38px;
@@ -355,27 +389,34 @@ height: 100vh;
     transition-duration: .4s;
 }
 
-.input_message_container form .button_area i{
-color: white;
+.input_message_container form .button_area i {
+    color: white;
 }
-.input_message_container form .button_area :hover i{
+
+.input_message_container form .button_area :hover i {
     color: black;
- }
- .openside{
+}
+
+.openside {
     background-color: red;
     display: none;
- }
- .sidebaropen{
+}
+
+.sidebaropen {
     border: 3px solid red;
     display: none;
- }
- .page-content{
+}
+
+.page-content {
     width: 100%;
- }
- .maincontent{
+    padding-bottom: 0;
+}
+
+.maincontent {
     margin-left: 0;
- }
- .openmenu{
+}
+
+.openmenu {
     border: 3px solid red;
     display: none;
- }
+}

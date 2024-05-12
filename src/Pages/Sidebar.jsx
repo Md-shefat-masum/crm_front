@@ -38,7 +38,7 @@ function Sidebar(props) {
                             {/* Left Menu Start */}
                             <ul className="tismenu list-unstyled" id="side-menu">
                                 <li className="nu-title" key="t-menu">
-                                    Menu
+                                    {/* Menu */}
                                 </li>
                                 <li>
                                     <a href="#/dashboard" className=" waves-effect">
@@ -55,23 +55,10 @@ function Sidebar(props) {
                                     </a>
                                     <ul className={`sub-menu ${menuOpen1 ? 'openmenu' : 'closemenu'}`} >
                                         <li>
-
                                             <Link to="/dashboard/user">User</Link>
-                                        </li>
-
-                                        <li>
-
-                                            <Link to="/dashboard/user-info">Info</Link>
-                                        </li>
-                                        <li>
-
-                                            <Link to="/dashboard/user-designation">Designation</Link>
                                         </li>
                                         <li>
                                             <Link to="/dashboard/user-work">Works</Link>
-                                        </li>
-                                        <li>
-                                            <Link to="/dashboard/user-work-user">Work users</Link>
                                         </li>
                                         <li>
                                             <Link to="/dashboard/user-work-department">Work department</Link>
