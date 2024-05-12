@@ -12,7 +12,7 @@ function Create() {
 
   useEffect(() => {
     fetch_all_task_variant();
-  }, [])
+  }, [fetch_all_task_variant])
 
 
   const handleSubmit = async (event) => {
@@ -29,7 +29,7 @@ function Create() {
   };
   console.log('data', data_store);
   if (data_store.task_variant) {
-   
+
     return (
       <div className="card list_card">
         <div className="card-header ">
@@ -48,11 +48,11 @@ function Create() {
                 <div className="col-lg-8">
                   <div className="form-group mb-5">
 
-                  <div className="custom_form_el">
+                    <div className="custom_form_el">
                       <label htmlFor="">Select Taks variant</label>
                       <div>:</div>
                       <div>
-                        <select  name="title" id="">
+                        <select name="title" id="">
                           {
                             data_store?.task_variant?.length && data_store?.task_variant?.map(item => {
                               return <option key={item.id} value={item.title}>{item.title}</option>

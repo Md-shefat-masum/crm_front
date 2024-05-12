@@ -1,5 +1,5 @@
 import React from 'react'
-import { useEffect, useState } from 'react'
+import { useEffect } from 'react'
 import { useDispatch, useSelector } from "react-redux";
 import dataStoreSlice, { async_actions } from './Config/store.js';
 import setup from "./Config/setup.js";
@@ -11,7 +11,7 @@ function Edit() {
   setup.dispatch = useDispatch();
   const data_store = useSelector((state) => state[setup.prefix])
   setup.set_async(async_actions, dataStoreSlice);
-  const { get_users, set_data, update_data, fetch_all_task,fetch_all_user, fetch_all_task_variant, fetch_all_task_variant_value } = setup.actions;
+  const { get_users, set_data, update_data, fetch_all_task, fetch_all_user, fetch_all_task_variant, fetch_all_task_variant_value } = setup.actions;
 
   useEffect(() => {
     get_users(id);
@@ -23,8 +23,8 @@ function Edit() {
       document.getElementById('form-data')?.reset();
       set_data(null)
     };
-  }, []);
-  console.log('id from edit', id);
+  }, [fetch_all_task, fetch_all_task_variant, fetch_all_task_variant_value, fetch_all_user, get_users, id, set_data]);
+  // console.log('id from edit', id);
 
   const handleSubmit = async (event) => {
     event.preventDefault();
@@ -41,7 +41,7 @@ function Edit() {
   };
   console.log('datra store from edit', data_store);
   if (data_store.singleData) {
-    const { title, end_time, description, id } = data_store?.singleData;
+    const { title, end_time, description } = data_store?.singleData;
     return (
       <div className="card list_card">
         <div className="card-header ">
@@ -60,33 +60,33 @@ function Edit() {
                 <div className="col-lg-8">
                   <div className="form-group mb-5">
 
-                  <div className="custom_form_el">
-                    <label htmlFor="">User</label>
-                    <div>:</div>
-                    <div>
-                      <select name="user" id="">
-                        {
-                          data_store?.user?.length && data_store?.user?.map(item => {
-                            return <option key={item.id} value={item.id}>{item.user_name}</option>
-                          })
-                        }
-                      </select>
+                    <div className="custom_form_el">
+                      <label htmlFor="">User</label>
+                      <div>:</div>
+                      <div>
+                        <select name="user" id="">
+                          {
+                            data_store?.user?.length && data_store?.user?.map(item => {
+                              return <option key={item.id} value={item.id}>{item.user_name}</option>
+                            })
+                          }
+                        </select>
+                      </div>
                     </div>
-                  </div>
-                 
-                  <div className="custom_form_el">
-                    <label htmlFor="">Task variant value</label>
-                    <div>:</div>
-                    <div>
-                      <select name="task_variant_value_id" id="">
-                        {
-                          data_store?.task_variant_value?.length && data_store?.task_variant_value?.map(item => {
-                            return <option key={item.id} value={item.id}>{item.title}</option>
-                          })
-                        }
-                      </select>
+
+                    <div className="custom_form_el">
+                      <label htmlFor="">Task variant value</label>
+                      <div>:</div>
+                      <div>
+                        <select name="task_variant_value_id" id="">
+                          {
+                            data_store?.task_variant_value?.length && data_store?.task_variant_value?.map(item => {
+                              return <option key={item.id} value={item.id}>{item.title}</option>
+                            })
+                          }
+                        </select>
+                      </div>
                     </div>
-                  </div>
                     <div className="custom_form_el">
                       <label htmlFor="">Task</label>
                       <div>:</div>

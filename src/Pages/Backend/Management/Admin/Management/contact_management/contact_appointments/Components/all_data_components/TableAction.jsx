@@ -6,14 +6,14 @@ function TableAction({data}) {
     return (
         <>
             <div className="table_actions">
-                <a href="#" className="btn btn-sm btn-outline-secondary">
+                <a href="/#/" className="btn btn-sm btn-outline-secondary">
                     <span className="material-symbols-outlined fill">
                         settings
                     </span>
                 </a>
                 <ul>
                     {/* <li>
-                        <a href="">
+                        <a href="/#/" onClick={(e) => { e.preventDefault();}}>
                             <span className="material-symbols-outlined">
                                 visibility
                             </span>
@@ -21,7 +21,7 @@ function TableAction({data}) {
                         </a>
                     </li> */}
                     <li>
-                        <a className="">
+                        <a href="/#/" onClick={(e) => { e.preventDefault();}} >
                             <span className="material-symbols-outlined">
                                 mystery
                             </span>
@@ -29,33 +29,14 @@ function TableAction({data}) {
                         </a>
                     </li>
                     <li>
-                        <a className="">
+                        <a href="/#/" onClick={(e) => { e.preventDefault();}} >
                             <span className="material-symbols-outlined">
                                 edit_square
                             </span>
                             Edit
                         </a>
                     </li>
-                    {
-                        1 == 1 ?
-                            <li>
-                                <a >
-                                    <i className="material-symbols-outlined">
-                                        delete
-                                    </i>
-                                    Deactive
-                                </a>
-                            </li>
-                            :
-                            <li>
-                                <a >
-                                    <i className="material-symbols-outlined">
-                                        restore
-                                    </i>
-                                    Restore
-                                </a>
-                            </li>
-                    }
+                    
                 </ul>
             </div>
         </>

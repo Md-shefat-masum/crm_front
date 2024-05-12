@@ -12,7 +12,7 @@ function Create() {
 
   useEffect(() => {
     fetch_all_variant();
-  }, [])
+  }, [fetch_all_variant])
 
   
   const handleSubmit = async (event) => {

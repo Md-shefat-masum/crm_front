@@ -11,7 +11,7 @@ function Create() {
 
   useEffect(() => {
     fetch_all_user();
-  }, [])
+  }, [fetch_all_user])
 
 
   const handleSubmit = async (event) => {

@@ -65,7 +65,7 @@ function Details() {
                                 <div>Status</div>
                                 <div>:</div>
                                 <div>
-                                    {status == 1 ? "true" : "false"}
+                                    {status === 1 ? "true" : "false"}
                                 </div>
                             </div>
                             <div className="custom_form_el">

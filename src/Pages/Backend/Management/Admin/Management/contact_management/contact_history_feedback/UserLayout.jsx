@@ -4,10 +4,10 @@ import { Outlet } from 'react-router-dom'
 function UserLayout() {
   return (
     <>
-    <h2>Contact history feedback management</h2>
-    <div>
+      <h2>Contact history feedback management</h2>
+      <div>
         <Outlet></Outlet>
-    </div>
+      </div>
     </>
   )
 }

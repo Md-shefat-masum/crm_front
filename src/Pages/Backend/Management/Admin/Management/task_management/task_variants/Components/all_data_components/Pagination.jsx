@@ -1,6 +1,6 @@
 import { useSelector, useDispatch } from 'react-redux'
 import setup from '../../Config/setup';
-import dataStoreSlice, { async_actions } from '../../Config/store';
+// import dataStoreSlice, { async_actions } from '../../Config/store';
 import parse from 'html-react-parser';
 
 function Pagination() {

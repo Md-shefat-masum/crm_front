@@ -15,7 +15,7 @@ function Create() {
     fetch_all_user();
     fetch_all_task_variant();
     fetch_all_task_variant_value();
-  }, [])
+  }, [fetch_all_task_variant, fetch_all_task_variant_value, fetch_all_user])
 
 
   const handleSubmit = async (event) => {

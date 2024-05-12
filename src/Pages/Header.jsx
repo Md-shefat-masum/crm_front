@@ -1,11 +1,10 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react'
-import { Link, useLocation } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 
 function Header(props) {
-    const location = useLocation();
     const handleLogout = () => {
-        axios.post('/api/logout') 
+        axios.post('/api/logout')
             .then(response => {
                 window.localStorage.removeItem('token')
                 window.location.href = `/#/login`
@@ -14,12 +13,12 @@ function Header(props) {
             });
     };
     const [isSidebarOpen, setSidebarOpen] = useState(false)
-    const toggleSidebar = () =>{
+    const toggleSidebar = () => {
         setSidebarOpen(!isSidebarOpen)
     }
     useEffect(() => {
         props.setSidebarOpen(isSidebarOpen)
-    },[isSidebarOpen])
+    }, [props, setSidebarOpen, isSidebarOpen])
     return (
         <>
             <header id="page-topbar">
@@ -91,7 +90,7 @@ function Header(props) {
                             </div>
                         </div>
                         <div>
-                            <Link to="/dashboard/crmentry"  className='btn btn-info rounded-pill px-4 m-3 border border-0'>Entry</Link>
+                            <Link to="/dashboard/crmentry" className='btn btn-info rounded-pill px-4 m-3 border border-0'>Entry</Link>
                         </div>
                         <div>
                             <button onClick={handleLogout} className='btn btn-info rounded-pill px-4 m-3 border border-0'>Logout</button>
@@ -118,25 +117,25 @@ function Header(props) {
                             </button>
                             <div className="dropdown-menu dropdown-menu-end">
                                 {/* item*/}
-                                <a className="dropdown-item" href="#/">
+                                <a className="dropdown-item" href="/#/" onClick={(e) => { e.preventDefault(); }}>
                                     <i className="bx bx-user font-size-16 align-middle me-1" />{" "}
                                     <span key="t-profile">Profile</span>
                                 </a>
-                                <a className="dropdown-item" href="#">
+                                <a className="dropdown-item" href="/#/" onClick={(e) => { e.preventDefault(); }}>
                                     <i className="bx bx-wallet font-size-16 align-middle me-1" />{" "}
                                     <span key="t-my-wallet">My Wallet</span>
                                 </a>
-                                <a className="dropdown-item d-block" href="#">
+                                <a className="dropdown-item d-block" href="/#/" onClick={(e) => { e.preventDefault(); }}>
                                     <span className="badge bg-success float-end">11</span>
                                     <i className="bx bx-wrench font-size-16 align-middle me-1" />{" "}
                                     <span key="t-settings">Settings</span>
                                 </a>
-                                <a className="dropdown-item" href="#">
+                                <a className="dropdown-item" href="/#/" onClick={(e) => { e.preventDefault(); }}>
                                     <i className="bx bx-lock-open font-size-16 align-middle me-1" />{" "}
                                     <span key="t-lock-screen">Lock screen</span>
                                 </a>
                                 <div className="dropdown-divider" />
-                                <a className="dropdown-item text-danger" href="#">
+                                <a className="dropdown-item text-danger" href="/#/" onClick={(e) => { e.preventDefault(); }}>
                                     <i className="bx bx-power-off font-size-16 align-middle me-1 text-danger" />{" "}
                                     <span key="t-logout">Logout</span>
                                 </a>

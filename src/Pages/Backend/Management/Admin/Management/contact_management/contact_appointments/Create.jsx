@@ -14,7 +14,7 @@ function Create() {
   useEffect(() => {
     fetch_all_contact_number();
     fetch_all_customer();
-  }, [])
+  }, [fetch_all_contact_number, fetch_all_customer])
 
 
   const handleSubmit = async (event) => {

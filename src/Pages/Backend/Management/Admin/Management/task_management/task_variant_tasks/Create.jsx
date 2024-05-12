@@ -13,7 +13,7 @@ function Create() {
     fetch_all_task();
     fetch_all_task_variant();
     fetch_all_task_variant_value();
-  }, [])
+  }, [fetch_all_task, fetch_all_task_variant, fetch_all_task_variant_value])
 
 
   const handleSubmit = async (event) => {
@@ -29,31 +29,31 @@ function Create() {
     event.target.reset();
   };
   if (data_store) {
-    const { task, task_variant, task_variant_value, user_uid, email, password, confirm_password, id } = data_store?.singleData;
-  return (
-    <div className="card list_card">
-      <div className="card-header ">
-        <h2 className="heading">Create</h2>
-        <div className="btns d-flex gap-2 align-items-center">
-          <a href="#/dashboard/task-variant-task" className="btn rounded-pill btn-outline-secondary">
-            {/* <i className="material-symbols-outlined fill">arrow_back</i> */}
-            Back
-          </a>
+    // const { task, task_variant, task_variant_value, user_uid, email, password, confirm_password, id } = data_store?.singleData;
+    return (
+      <div className="card list_card">
+        <div className="card-header ">
+          <h2 className="heading">Create</h2>
+          <div className="btns d-flex gap-2 align-items-center">
+            <a href="#/dashboard/task-variant-task" className="btn rounded-pill btn-outline-secondary">
+              {/* <i className="material-symbols-outlined fill">arrow_back</i> */}
+              Back
+            </a>
+          </div>
         </div>
-      </div>
-      <form onSubmit={(event) => handleSubmit(event)}>
-        <div className="card-body">
-          <div className="container py-5">
-            <div className="row">
-              <div className="col-lg-8">
-                <div className="form-group mb-5">
+        <form onSubmit={(event) => handleSubmit(event)}>
+          <div className="card-body">
+            <div className="container py-5">
+              <div className="row">
+                <div className="col-lg-8">
+                  <div className="form-group mb-5">
 
-                 
-                <div className="custom_form_el">
+
+                    <div className="custom_form_el">
                       <label htmlFor="">Taks title</label>
                       <div>:</div>
                       <div>
-                        <select  name="task_id" id="">
+                        <select name="task_id" id="">
                           {
                             data_store?.task?.length && data_store?.task?.map(item => {
                               return <option key={item.id} value={item.id}>{item.title}</option>
@@ -66,7 +66,7 @@ function Create() {
                       <label htmlFor="">Taks variant title</label>
                       <div>:</div>
                       <div>
-                        <select  name="variant_id" id="">
+                        <select name="variant_id" id="">
                           {
                             data_store?.task_variant?.length && data_store?.task_variant?.map(item => {
                               return <option key={item.id} value={item.id}>{item.title}</option>
@@ -79,7 +79,7 @@ function Create() {
                       <label htmlFor="">Taks variant value title</label>
                       <div>:</div>
                       <div>
-                        <select  name="task_variant_value_id" id="">
+                        <select name="task_variant_value_id" id="">
                           {
                             data_store?.task_variant_value?.length && data_store?.task_variant_value?.map(item => {
                               return <option key={item.id} value={item.id}>{item.title}</option>
@@ -90,20 +90,20 @@ function Create() {
                     </div>
 
 
+                  </div>
                 </div>
               </div>
             </div>
           </div>
-        </div>
-        <div className="card-footer">
-          <button className="btn btn-outline-info" type="submit" value="Create">
-            Submit{" "}
-          </button>
-        </div>
-      </form>
-    </div>
-  );
-}
+          <div className="card-footer">
+            <button className="btn btn-outline-info" type="submit" value="Create">
+              Submit{" "}
+            </button>
+          </div>
+        </form>
+      </div>
+    );
+  }
 }
 
 export default Create

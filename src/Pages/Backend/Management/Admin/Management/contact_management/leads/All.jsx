@@ -1,11 +1,10 @@
 import React from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import TableAction from './Components/all_data_components/TableAction';
 import TopPart from './Components/all_data_components/TopPart';
 import Pagination from './Components/all_data_components/Pagination';
 import { Link } from 'react-router-dom';
 import setup from './Config/setup';
-import { useEffect, useState } from 'react';
+import react from 'react';
 import dataStoreSlice, { async_actions } from './Config/store';
 import moment from 'moment/moment';
 
@@ -15,7 +14,7 @@ function All() {
     setup.set_async(async_actions, dataStoreSlice);
     const { fetch_all_data, delete_data, restore_data } = setup.actions;
 
-    useEffect(() => {
+    react.useEffect(() => {
         fetch_all_data();
     }, [])
 
@@ -114,16 +113,16 @@ function All() {
                                                             <Link to="/dashboard/contact-leads/edit">Deactive</Link>
                                                         </li> */}
                                                                    {
-                                                            item.status == 1 ?
+                                                            item.status === 1 ?
                                                                 <li>
-                                                                    <a className="" href='#' onClick={(event) => { event.preventDefault(); delete_data(item.id) }}>
+                                                                    <a href="/#/" onClick={(event) => { event.preventDefault(); delete_data(item.id) }}>
 
                                                                         Deactive
                                                                     </a>
                                                                 </li>
                                                                 :
                                                                 <li>
-                                                                    <a className="" href='#' onClick={(event) => { event.preventDefault(); restore_data(item.id) }}>
+                                                                    <a href="/#/" onClick={(event) => { event.preventDefault(); restore_data(item.id) }}>
 
                                                                         Restore
                                                                     </a>

@@ -19,7 +19,7 @@ function Details() {
         return () => {
             set_data(null)
         };
-    }, []);
+    }, [get_users, id, set_data]);
     console.log("data_store", data_store);
     if (data_store) {
         const { contact_historie,date,feedback_type,notes, status, createdAt, updatedAt } = data_store;
@@ -75,7 +75,7 @@ function Details() {
                                     <div>Status</div>
                                     <div>:</div>
                                     <div>
-                                        {status == 1 ? "true" : "false"}
+                                        {status === 1 ? "true" : "false"}
                                     </div>
                                 </div>
                                

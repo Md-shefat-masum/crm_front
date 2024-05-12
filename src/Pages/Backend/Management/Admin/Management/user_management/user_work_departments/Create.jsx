@@ -13,7 +13,7 @@ function Create() {
   useEffect(() => {
     fetch_all_user_work();
     fetch_all_user_work_department();
-  }, [])
+  }, [fetch_all_user_work, fetch_all_user_work_department])
 
 
   const handleSubmit = async (event) => {

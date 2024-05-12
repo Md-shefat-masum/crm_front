@@ -1,11 +1,11 @@
 import React from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import TableAction from './Components/all_data_components/TableAction';
+// import TableAction from './Components/all_data_components/TableAction';
 import TopPart from './Components/all_data_components/TopPart';
 import Pagination from './Components/all_data_components/Pagination';
 import { Link } from 'react-router-dom';
 import setup from './Config/setup';
-import { useEffect, useState } from 'react';
+import { useEffect } from 'react';
 import dataStoreSlice, { async_actions } from './Config/store';
 import moment from 'moment/moment';
 
@@ -17,7 +17,7 @@ function All() {
 
     useEffect(() => {
         fetch_all_data();
-    }, [])
+    }, [fetch_all_data])
 
     console.log("data stor from user info front end", data_store?.data?.data);
 
@@ -48,7 +48,7 @@ function All() {
                                 <th className="cursor_n_resize edit_cursor_n_resize">
                                     Notes
                                 </th>
-                                
+
 
                                 <th className="cursor_n_resize edit_cursor_n_resize">
                                     Status
@@ -64,31 +64,31 @@ function All() {
                                         <td><input type="checkbox" className="form-check-input" /></td>
                                         <td>
                                             <span >
-                                            {item?.crm_contact_number?.details}
+                                                {item?.crm_contact_number?.details}
                                             </span>
                                         </td>
                                         <td>
                                             <span>
-                                            {item?.customer?.full_name}
+                                                {item?.customer?.full_name}
                                             </span>
                                         </td>
 
                                         <td>
                                             <span>
-                                            {moment(item.date).format('YYYY-MM-DD')}
+                                                {moment(item.date).format('YYYY-MM-DD')}
                                             </span>
                                         </td>
                                         <td>
                                             <span>
-                                            {item.contact_type}
+                                                {item.contact_type}
                                             </span>
                                         </td>
                                         <td>
                                             <span>
-                                            {item.note}
+                                                {item.note}
                                             </span>
                                         </td>
-                                    
+
                                         <td>
                                             <span>Active</span>
                                         </td>
@@ -105,17 +105,17 @@ function All() {
                                                         {/* <li>
                                                             <Link to="/dashboard/contact-appointment/edit">Deactive</Link>
                                                         </li> */}
-                                                                          {
-                                                            item.status == 1 ?
+                                                        {
+                                                            item.status === 1 ?
                                                                 <li>
-                                                                    <a className="" href='#' onClick={(event) => { event.preventDefault(); delete_data(item.id) }}>
+                                                                    <a href="/#/" onClick={(event) => { event.preventDefault(); delete_data(item.id) }}>
 
                                                                         Deactive
                                                                     </a>
                                                                 </li>
                                                                 :
                                                                 <li>
-                                                                    <a className="" href='#' onClick={(event) => { event.preventDefault(); restore_data(item.id) }}>
+                                                                    <a href="/#/" onClick={(event) => { event.preventDefault(); restore_data(item.id) }}>
 
                                                                         Restore
                                                                     </a>

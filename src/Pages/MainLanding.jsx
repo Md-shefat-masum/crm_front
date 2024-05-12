@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { useEffect } from 'react';
 import setup from './dashboard/setup';
@@ -81,7 +81,7 @@ function MainLanding() {
         fetch_interested_customer();
         fetch_upcoming_customer();
         // console.log("data stroe from user end", data_store);
-    }, [])
+    }, [fetch_all_customer, fetch_pending_customer, fetch_interested_customer, fetch_upcoming_customer])
     console.log('log data_store', data_store);
     let upcoming = data_store.upcoming_customer;
     // console.log('upcoming ', upcoming);
@@ -110,7 +110,7 @@ function MainLanding() {
 
                                         <div className="page-title-right">
                                             <ol className="breadcrumb m-0">
-                                                <li className="breadcrumb-item"><a href="javascript: void(0);">Dashboards</a></li>
+                                                <li className="breadcrumb-item"><a href="/#/" onClick={(e) => { e.preventDefault(); }}>Dashboards</a></li>
                                                 <li className="breadcrumb-item active">Dashboard</li>
                                             </ol>
                                         </div>
@@ -160,7 +160,7 @@ function MainLanding() {
                                                             </div>
                                                         </div>
                                                         <div className="mt-4">
-                                                            <a href="javascript: void(0);" className="btn btn-primary waves-effect waves-light btn-sm">View Profile <i className="mdi mdi-arrow-right ms-1"></i></a>
+                                                            <a href="/#/" onClick={(e) => { e.preventDefault(); }} className="btn btn-primary waves-effect waves-light btn-sm">View Profile <i className="mdi mdi-arrow-right ms-1"></i></a>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -177,7 +177,7 @@ function MainLanding() {
                                                     <p className="text-muted"><span className="text-success me-2"> 12% <i className="mdi mdi-arrow-up"></i> </span> From previous period</p>
 
                                                     <div className="mt-4">
-                                                        <a href="javascript: void(0);" className="btn btn-primary waves-effect waves-light btn-sm">View More <i className="mdi mdi-arrow-right ms-1"></i></a>
+                                                        <a href="/#/" onClick={(e) => { e.preventDefault(); }} className="btn btn-primary waves-effect waves-light btn-sm">View More <i className="mdi mdi-arrow-right ms-1"></i></a>
                                                     </div>
                                                 </div>
                                                 <div className="col-sm-6">
@@ -262,13 +262,13 @@ function MainLanding() {
                                                 <div className="ms-auto">
                                                     <ul className="nav nav-pills">
                                                         <li className="nav-item">
-                                                            <a className="nav-link" href="#">Week</a>
+                                                            <a className="nav-link" href="/#/" onClick={(e) => { e.preventDefault(); }}>Week</a>
                                                         </li>
                                                         <li className="nav-item">
-                                                            <a className="nav-link" href="#">Month</a>
+                                                            <a className="nav-link" href="/#/" onClick={(e) => { e.preventDefault(); }}>Month</a>
                                                         </li>
                                                         <li className="nav-item">
-                                                            <a className="nav-link active" href="#">Year</a>
+                                                            <a className="nav-link active" href="/#/" onClick={(e) => { e.preventDefault(); }}>Year</a>
                                                         </li>
                                                     </ul>
                                                 </div>
@@ -293,9 +293,9 @@ function MainLanding() {
                                                     </span>
                                                 </div>
                                                 <p className="font-16 text-muted mb-2"></p>
-                                                <h5><a href="javascript: void(0);" className="text-dark">Facebook - <span className="text-muted font-16">125 sales</span> </a></h5>
+                                                <h5><a href="/#/" onClick={(e) => { e.preventDefault(); }} className="text-dark">Facebook - <span className="text-muted font-16">125 sales</span> </a></h5>
                                                 <p className="text-muted">Maecenas nec odio et ante tincidunt tempus. Donec vitae sapien ut libero venenatis faucibus tincidunt.</p>
-                                                <a href="javascript: void(0);" className="text-primary font-16">Learn more <i className="mdi mdi-chevron-right"></i></a>
+                                                <a href="/#/" onClick={(e) => { e.preventDefault(); }} className="text-primary font-16">Learn more <i className="mdi mdi-chevron-right"></i></a>
                                             </div>
                                             <div className="row mt-4">
                                                 <div className="col-4">
@@ -366,7 +366,7 @@ function MainLanding() {
                                                         </div>
                                                         <div className="flex-grow-1">
                                                             <div>
-                                                                Everyone realizes why a new common language would be desirable... <a href="javascript: void(0);">Read more</a>
+                                                                Everyone realizes why a new common language would be desirable... <a href="/#/" onClick={(e) => { e.preventDefault(); }}>Read more</a>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -402,7 +402,7 @@ function MainLanding() {
                                                     </div>
                                                 </li>
                                             </ul>
-                                            <div className="text-center mt-4"><a href="javascript: void(0);" className="btn btn-primary waves-effect waves-light btn-sm">View More <i className="mdi mdi-arrow-right ms-1"></i></a></div>
+                                            <div className="text-center mt-4"><a href="/#/" onClick={(e) => { e.preventDefault(); }} className="btn btn-primary waves-effect waves-light btn-sm">View More <i className="mdi mdi-arrow-right ms-1"></i></a></div>
                                         </div>
                                     </div>
                                 </div>
@@ -520,7 +520,7 @@ function MainLanding() {
                                                                             <label className="form-check-label" for="transactionCheck02"></label>
                                                                         </div>
                                                                     </td>
-                                                                    <td><a href="javascript: void(0);" className="text-body fw-bold">{item.id}</a> </td>
+                                                                    <td><a href="/#/" onClick={(e) => { e.preventDefault(); }} className="text-body fw-bold">{item.id}</a> </td>
                                                                     <td>{item.contact_type}</td>
                                                                     <td>
                                                                         {moment(item.date).format('YYYY-MM-DD')}

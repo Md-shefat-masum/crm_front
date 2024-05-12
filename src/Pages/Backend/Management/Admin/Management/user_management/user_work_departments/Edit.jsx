@@ -1,5 +1,5 @@
 import React from 'react'
-import { useEffect, useState } from 'react'
+import { useEffect } from 'react'
 import { useDispatch, useSelector } from "react-redux";
 import dataStoreSlice, { async_actions } from './Config/store.js';
 import setup from "./Config/setup.js";
@@ -23,7 +23,7 @@ function Edit() {
       document.getElementById('form-data')?.reset();
       set_data(null)
     };
-  }, []);
+  }, [fetch_all_user_work, fetch_all_user_work_department, get_users, id, set_data]);
   console.log('id from edit', id);
   console.log('user work user ', data_store1);
   console.log('user work user ', data_store3);
@@ -42,8 +42,8 @@ function Edit() {
 
   };
   console.log('datra store from edit', data_store);
-  if (data_store3 ) {
-    const { title, id } = data_store;
+  if (data_store3) {
+    // const { title, id } = data_store;
     return (
       <div className="card list_card">
         <div className="card-header ">

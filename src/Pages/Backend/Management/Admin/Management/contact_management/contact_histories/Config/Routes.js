@@ -5,7 +5,7 @@ import Edit from "../Edit";
 import UserLayout from "../UserLayout";
 
 
-export default {
+const routes = {
     path: "contact-history",
     element: <UserLayout></UserLayout>,
     children: [
@@ -29,3 +29,4 @@ export default {
         
     ]
 }
+export default routes;

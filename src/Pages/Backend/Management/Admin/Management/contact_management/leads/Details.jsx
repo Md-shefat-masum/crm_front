@@ -19,116 +19,116 @@ function Details() {
         return () => {
             set_data(null)
         };
-    }, []);
-    console.log("data_store", data_store);
+    }, [get_users, id, set_data]);
+    // console.log("data_store", data_store);
     if (data_store) {
-        const { customer,lead_status,lead_source,assigned_to,qualification_notes,follow_up_date, status, createdAt, updatedAt } = data_store;
-    return (
-        <div className='card list_card'>
-            <div className="card-header ">
-                <h2 className='heading'>Details</h2>
-                <div className="btns d-flex gap-2 align-items-center">
-                    <a href="#/dashboard/contact-leads" className="btn rounded-pill btn-outline-secondary">
-                        {/* <i className="material-symbols-outlined fill">arrow_back</i> */}
-                        Back
-                    </a>
+        const { customer, lead_status, lead_source, assigned_to, qualification_notes, follow_up_date, status, createdAt, updatedAt } = data_store;
+        return (
+            <div className='card list_card'>
+                <div className="card-header ">
+                    <h2 className='heading'>Details</h2>
+                    <div className="btns d-flex gap-2 align-items-center">
+                        <a href="#/dashboard/contact-leads" className="btn rounded-pill btn-outline-secondary">
+                            {/* <i className="material-symbols-outlined fill">arrow_back</i> */}
+                            Back
+                        </a>
+                    </div>
                 </div>
-            </div>
-            <div className="card-body">
-                <div className="container py-5">
-                    <div className="row">
-                        <div className="col-lg-8">
-                            <div className="form-group mb-3">
+                <div className="card-body">
+                    <div className="container py-5">
+                        <div className="row">
+                            <div className="col-lg-8">
+                                <div className="form-group mb-3">
 
-                                <div className="custom_form_el">
-                                    <div>Id</div>
-                                    <div>:</div>
-                                    <div>
-                                        {id}
+                                    <div className="custom_form_el">
+                                        <div>Id</div>
+                                        <div>:</div>
+                                        <div>
+                                            {id}
+                                        </div>
                                     </div>
-                                </div>
-                                <div className="custom_form_el">
-                                    <div>Customer Id</div>
-                                    <div>:</div>
-                                    <div>
-                                        {customer?.full_name}
+                                    <div className="custom_form_el">
+                                        <div>Customer Id</div>
+                                        <div>:</div>
+                                        <div>
+                                            {customer?.full_name}
+                                        </div>
                                     </div>
-                                </div>
-                                <div className="custom_form_el">
-                                    <div>Lead status</div>
-                                    <div>:</div>
-                                    <div>
-                                        {lead_status}
+                                    <div className="custom_form_el">
+                                        <div>Lead status</div>
+                                        <div>:</div>
+                                        <div>
+                                            {lead_status}
+                                        </div>
+                                    </div>
+
+                                    <div className="custom_form_el">
+                                        <div>Lead source</div>
+                                        <div>:</div>
+                                        <div>
+                                            {lead_source}
+                                        </div>
+                                    </div>
+                                    <div className="custom_form_el">
+                                        <div>Assigned to</div>
+                                        <div>:</div>
+                                        <div>
+                                            {assigned_to}
+                                        </div>
+                                    </div>
+                                    <div className="custom_form_el">
+                                        <div>Qualification notes</div>
+                                        <div>:</div>
+                                        <div>
+                                            {qualification_notes}
+                                        </div>
+                                    </div>
+                                    <div className="custom_form_el">
+                                        <div> Follow up date</div>
+                                        <div>:</div>
+                                        <div>
+                                            {moment(follow_up_date).format('YYYY-MM-DD')}
+                                        </div>
+                                    </div>
+                                    <div className="custom_form_el">
+                                        <div>Status</div>
+                                        <div>:</div>
+                                        <div>
+                                            {status === 1 ? "true" : "false"}
+                                        </div>
+                                    </div>
+
+                                    <div className="custom_form_el">
+                                        <div>Created at</div>
+                                        <div>:</div>
+                                        <div>
+                                            {moment(createdAt).format('YYYY-MM-DD')}
+                                        </div>
+                                    </div>
+
+                                    <div className="custom_form_el">
+                                        <div>Updated at</div>
+                                        <div>:</div>
+                                        <div>
+                                            {moment(updatedAt).format('YYYY-MM-DD')}
+                                        </div>
                                     </div>
                                 </div>
 
-                                <div className="custom_form_el">
-                                    <div>Lead source</div>
-                                    <div>:</div>
-                                    <div>
-                                        {lead_source}
-                                    </div>
-                                </div>
-                                <div className="custom_form_el">
-                                    <div>Assigned to</div>
-                                    <div>:</div>
-                                    <div>
-                                        {assigned_to}
-                                    </div>
-                                </div>
-                                <div className="custom_form_el">
-                                    <div>Qualification notes</div>
-                                    <div>:</div>
-                                    <div>
-                                        {qualification_notes}
-                                    </div>
-                                </div>
-                                <div className="custom_form_el">
-                                    <div> Follow up date</div>
-                                    <div>:</div>
-                                    <div>
-                                    {moment(follow_up_date).format('YYYY-MM-DD')}
-                                    </div>
-                                </div>
-                                <div className="custom_form_el">
-                                    <div>Status</div>
-                                    <div>:</div>
-                                    <div>
-                                        {status == 1 ? "true" : "false"}
-                                    </div>
-                                </div>
-                               
-                                <div className="custom_form_el">
-                                    <div>Created at</div>
-                                    <div>:</div>
-                                    <div>
-                                    {moment(createdAt).format('YYYY-MM-DD')}
-                                    </div>
-                                </div>
-                               
-                                <div className="custom_form_el">
-                                    <div>Updated at</div>
-                                    <div>:</div>
-                                    <div>
-                                    {moment(updatedAt).format('YYYY-MM-DD')}
-                                    </div>
-                                </div>
                             </div>
-
                         </div>
                     </div>
                 </div>
-            </div>
-            <div className="card-footer">
+                <div className="card-footer">
 
+                </div>
             </div>
-        </div>
-    )
-} else {
-    return <>
-        <p>loading ...</p>
-    </>
-}
+        )
+    } else {
+        return <>
+            <p>loading ...</p>
+        </>
+    }
 }
 
 export default Details

@@ -1,11 +1,11 @@
 import React from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import TableAction from './Components/all_data_components/TableAction';
+// import TableAction from './Components/all_data_components/TableAction';
 import TopPart from './Components/all_data_components/TopPart';
 import Pagination from './Components/all_data_components/Pagination';
 import { Link } from 'react-router-dom';
 import setup from './Config/setup';
-import { useEffect, useState } from 'react';
+import { useEffect } from 'react';
 import dataStoreSlice, { async_actions } from './Config/store';
 
 function All() {
@@ -16,7 +16,7 @@ function All() {
 
     useEffect(() => {
         fetch_all_data();
-    }, [])
+    }, [fetch_all_data])
 
     console.log("data stor from user info front end", data_store?.data?.data);
     return (
@@ -35,7 +35,7 @@ function All() {
                                 <th className="cursor_n_resize edit_cursor_n_resize">
                                     Customer Id
                                 </th>
-                               
+
 
                                 <th className="cursor_n_resize edit_cursor_n_resize">
                                     Subject
@@ -49,7 +49,7 @@ function All() {
                                 <th className="cursor_n_resize edit_cursor_n_resize">
                                     Is complete
                                 </th>
-                               
+
                                 {/* <th className="cursor_n_resize edit_cursor_n_resize">
                                     Assigned to
                                 </th> */}
@@ -65,39 +65,39 @@ function All() {
 
                                         <td>
                                             <span>
-                                            {item?.customer?.full_name}
+                                                {item?.customer?.full_name}
                                             </span>
                                         </td>
-                                        
+
                                         <td>
                                             <span>
-                                            {item.subject}
-                                            </span>
-                                        </td>
-                                        <td>
-                                            <span>
-                                            {item.description}
+                                                {item.subject}
                                             </span>
                                         </td>
                                         <td>
                                             <span>
-                                            {item.priority}
+                                                {item.description}
                                             </span>
                                         </td>
                                         <td>
-                                        <span>
+                                            <span>
+                                                {item.priority}
+                                            </span>
+                                        </td>
+                                        <td>
+                                            <span>
                                                 {/* {item?.is_complete == false ? 'incomplete' : 'complete'} */}
                                                 {
-                                                    item.is_complete == 1 ?
+                                                    item.is_complete === 1 ?
 
-                                                        <a className="text-success" >
+                                                        <a className="text-success" href="/#/" onClick={(e) => { e.preventDefault(); }} >
 
                                                             complete
                                                         </a>
 
                                                         :
 
-                                                        <a className="text-danger" >
+                                                        <a className="text-danger" href="/#/" onClick={(e) => { e.preventDefault(); }} >
 
                                                             incomplete
                                                         </a>
@@ -111,7 +111,7 @@ function All() {
                                             </span>
                                         </td> */}
 
-                                       
+
                                         <td>
                                             <span className='edit_class_submanu_active'><i className="mdi mdi-format-list-bulleted"></i>
                                                 <div className='edit_class_submanu'>
@@ -125,17 +125,17 @@ function All() {
                                                         {/* <li>
                                                             <Link to="/dashboard/customer-support-ticket/edit">Deactive</Link>
                                                         </li> */}
-                                                                {
-                                                            item.status == 1 ?
+                                                        {
+                                                            item.status === 1 ?
                                                                 <li>
-                                                                    <a className="" href='#' onClick={(event) => { event.preventDefault(); delete_data(item.id) }}>
+                                                                    <a href="/#/" onClick={(event) => { event.preventDefault(); delete_data(item.id) }}>
 
                                                                         Deactive
                                                                     </a>
                                                                 </li>
                                                                 :
                                                                 <li>
-                                                                    <a className="" href='#' onClick={(event) => { event.preventDefault(); restore_data(item.id) }}>
+                                                                    <a href="/#/" onClick={(event) => { event.preventDefault(); restore_data(item.id) }}>
 
                                                                         Restore
                                                                     </a>

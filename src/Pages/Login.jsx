@@ -7,21 +7,21 @@ function Login() {
     const loginSubmit = async (event) => {
 
         event.preventDefault();
-        
+
         let token = localStorage.getItem('token');
         console.log('token value', token);
 
         const config = {
             headers: {
-              'Authorization': `Bearer ${token}`,
+                'Authorization': `Bearer ${token}`,
             }
-          };
+        };
 
         axios.post("api/login-submit", new FormData(event.currentTarget), config)
             .then(res => {
                 // {{-- localStorage.token = res.data.access_token; --}}
-                console.log('from form submitddd',res.data?.data);
-                console.log('token',res.data?.token);
+                console.log('from form submitddd', res.data?.data);
+                console.log('token', res.data?.token);
                 let token = res.data?.token;
 
                 // return;
@@ -31,24 +31,21 @@ function Login() {
                     return navigate("/dashboard");
 
                 }
-                else{
+                else {
                     return navigate("/dashboard/crmentry");
                 }
 
-                console.log(res);
-                console.log(res.data.access_token);
             })
             .catch(err => {
-                let { code, data } = err.response.data;
+                let { data } = err.response.data;
                 console.log(data);
-                console.log(err);
             })
     }
     return (
         <>
             {/* <h1 className='testt'>login</h1> */}
 
-            <div style={{"backgroundImage":"url(./assets/customize_img/bg.jpg)"}} className='login_page'>
+            <div style={{ "backgroundImage": "url(./assets/customize_img/bg.jpg)" }} className='login_page'>
                 <div className='container'>
                     <div className='login_page_content'>
 
@@ -61,24 +58,22 @@ function Login() {
                             </div>
 
                             {/* form_area_start */}
-                            <form onSubmit={(event) =>loginSubmit(event)} method="POST" action="/api/login-submit" >
+                            <form onSubmit={(event) => loginSubmit(event)} method="POST" action="/api/login-submit" >
                                 <div class="input_area">
                                     {/* email area start */}
                                     <div class="icon_and_input_text_area">
-                                       
+
                                         <div class="input_text_area">
-                                            <input name='email' type="email"
-                                            value={'mmm@gmail.com'} className="input_text" placeholder="Email . . ." />
+                                            <input name='email' type="email" className="input_text" placeholder="Email . . ." />
                                         </div>
                                     </div>
                                     {/* email area end */}
 
                                     {/* password area start */}
                                     <div class="icon_and_input_text_area">
-                                       
+
                                         <div class="input_text_area">
-                                            <input name='password' type="password"
-                                             value={'1234'}  class="input_text" placeholder="Enter your password . . ." />
+                                            <input name='password' type="password" class="input_text" placeholder="Enter your password . . ." />
                                         </div>
                                     </div>
                                     {/* password area end */}

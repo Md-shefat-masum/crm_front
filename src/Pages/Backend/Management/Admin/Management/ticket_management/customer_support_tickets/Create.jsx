@@ -13,7 +13,7 @@ function Create() {
   useEffect(() => {
     fetch_all_customer();
     fetch_all_user();
-  }, [])
+  }, [fetch_all_customer, fetch_all_user])
 
   console.log('datra store from edit', data_store);
   const handleSubmit = async (event) => {

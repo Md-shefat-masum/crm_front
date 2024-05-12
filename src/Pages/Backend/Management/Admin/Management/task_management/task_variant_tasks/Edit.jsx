@@ -1,5 +1,5 @@
 import React from 'react'
-import { useEffect, useState } from 'react'
+import { useEffect } from 'react'
 import { useDispatch, useSelector } from "react-redux";
 import dataStoreSlice, { async_actions } from './Config/store.js';
 import setup from "./Config/setup.js";
@@ -21,7 +21,7 @@ function Edit() {
       document.getElementById('form-data')?.reset();
       set_data(null)
     };
-  }, []);
+  }, [fetch_all_task, fetch_all_task_variant, fetch_all_task_variant_value, get_users, id, set_data]);
   console.log('id from edit', id);
 
   const handleSubmit = async (event) => {
@@ -39,7 +39,7 @@ function Edit() {
   };
   console.log('datra store from edit', data_store);
   if (data_store) {
-    const { task, task_variant, task_variant_value, user_uid, email, password, confirm_password, id } = data_store?.singleData;
+    // const { task, task_variant, task_variant_value, user_uid, email, password, confirm_password, id } = data_store?.singleData;
     return (
       <div className="card list_card">
         <div className="card-header ">

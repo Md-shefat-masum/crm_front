@@ -20,7 +20,7 @@ function Details() {
         return () => {
             set_data(null)
         };
-    }, []);
+    }, [get_users, id, set_data]);
     console.log(data_store, id);
     if (data_store && data_store.customer_variant) {
         const { title, status, updatedAt, createdAt } = data_store.customer_variant;
@@ -60,21 +60,21 @@ function Details() {
                                         <div>Status</div>
                                         <div>:</div>
                                         <div>
-                                            {status== 1 ? "true": "false"}
+                                            {status === 1 ? "true" : "false"}
                                         </div>
                                     </div>
                                     <div className="custom_form_el">
                                         <div>Created at</div>
                                         <div>:</div>
                                         <div>
-                                        {moment(createdAt).format('YYYY-MM-DD')}
+                                            {moment(createdAt).format('YYYY-MM-DD')}
                                         </div>
                                     </div>
                                     <div className="custom_form_el">
                                         <div>Updated at</div>
                                         <div>:</div>
                                         <div>
-                                        {moment(updatedAt).format('YYYY-MM-DD')}
+                                            {moment(updatedAt).format('YYYY-MM-DD')}
                                         </div>
                                     </div>
                                 </div>

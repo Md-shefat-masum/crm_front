@@ -5,7 +5,7 @@ import TopPart from './Components/all_data_components/TopPart';
 import Pagination from './Components/all_data_components/Pagination';
 import { Link } from 'react-router-dom';
 import setup from './Config/setup';
-import { useEffect, useState } from 'react';
+import { useEffect } from 'react';
 import dataStoreSlice, { async_actions } from './Config/store.js';
 
 function All() {
@@ -18,7 +18,7 @@ function All() {
 
     useEffect(() => {
         fetch_all_data();
-    }, [])
+    }, [fetch_all_data])
 
     console.log("data stroe from user end", data_store);
 
@@ -85,16 +85,16 @@ function All() {
                                                         </li> */}
                                                         {/* copy... */}
                                                         {
-                                                            item.status == 1 ?
+                                                            item.status === 1 ?
                                                                 <li>
-                                                                    <a className="" href='#' onClick={(event) => { event.preventDefault(); delete_data(item.id) }}>
+                                                                    <a href="/#/" onClick={(event) => { event.preventDefault(); delete_data(item.id) }}>
 
                                                                         Deactive
                                                                     </a>
                                                                 </li>
                                                                 :
                                                                 <li>
-                                                                    <a className="" href='#' onClick={(event) => { event.preventDefault(); restore_data(item.id) }}>
+                                                                    <a href="/#/" onClick={(event) => { event.preventDefault(); restore_data(item.id) }}>
 
                                                                         Restore
                                                                     </a>

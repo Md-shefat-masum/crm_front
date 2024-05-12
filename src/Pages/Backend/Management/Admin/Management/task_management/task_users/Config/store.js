@@ -36,8 +36,8 @@ export const async_actions = {
     [`fetch_all_user`]: createAsyncThunk(
         `${store_prefix}/fetch_all_user`,
         async (data, thunkAPI) => {
-            console.log('store data', data);
-            let state = thunkAPI.getState()[store_prefix];
+            // console.log('store data', data);
+            // let state = thunkAPI.getState()[store_prefix];
            
 
             let url = data?.url ? data.url : `/${setup.route_prefix}/all`;
@@ -50,7 +50,7 @@ export const async_actions = {
         `${store_prefix}/fetch_all_variants`,
         async (data, thunkAPI) => {
             console.log('store data', data);
-            let state = thunkAPI.getState()[store_prefix];
+            // let state = thunkAPI.getState()[store_prefix];
            
 
             let url = data?.url ? data.url : `/task-variant`;

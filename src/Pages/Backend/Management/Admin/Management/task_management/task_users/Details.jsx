@@ -20,21 +20,21 @@ function Details() {
         return () => {
             set_data(null)
         };
-    }, []);
+    }, [get_users, id, set_data]);
     useEffect(() => {
         fetch_all_variants();
-    }, [])
+    }, [fetch_all_variants])
     const handleSubmit = async (event) => {
         event.preventDefault();
         let form_data = new FormData(event.target);
         await store_data(form_data);
         event.target.reset();
-      };
+    };
 
     console.log(data_store, id);
     // console.log(data_store2, id);
     if (data_store && data_store2?.variants?.data) {
-        const { title } = data_store;
+        // const { title } = data_store;
         const variants = data_store2?.variants?.data;
         // console.log('variants', variants);
         return (
@@ -61,7 +61,7 @@ function Details() {
                                                 {
                                                     variants?.length && variants?.map(item => {
                                                         return <li>
-                                                            <a href="#">
+                                                            <a href="/#/">
                                                                 {item?.title}
                                                             </a>
                                                         </li>
@@ -88,7 +88,7 @@ function Details() {
 
                                                                 {item?.task?.task_variant_values.length && item?.task?.task_variant_values.map(item2 => {
                                                                     return <li>
-                                                                        <a href="#">{item2?.title}</a>
+                                                                        <a href="/#/">{item2?.title}</a>
                                                                     </li>
                                                                 })}
                                                             </ul>

@@ -5,7 +5,6 @@ import dataStoreSlice, { async_actions } from './Config/store.js';
 
 function Create() {
   setup.dispatch = useDispatch();
-  const data_store = useSelector((state) => state[setup.prefix]["singleData"])
   const data_store2 = useSelector((state) => state[setup.prefix]["user_work"])
   const data_store3 = useSelector((state) => state[setup.prefix]["user_work_department"])
   const data_store4 = useSelector((state) => state[setup.prefix]["user"])
@@ -16,7 +15,7 @@ function Create() {
     fetch_all_user_work();
     fetch_all_user_work_department();
     fetch_all_user();
-  }, [])
+  }, [fetch_all_user, fetch_all_user_work, fetch_all_user_work_department])
 
 
   const handleSubmit = async (event) => {

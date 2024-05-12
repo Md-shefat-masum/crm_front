@@ -1,11 +1,11 @@
 import React from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import TableAction from './Components/all_data_components/TableAction';
+// import TableAction from './Components/all_data_components/TableAction';
 import TopPart from './Components/all_data_components/TopPart';
 import Pagination from './Components/all_data_components/Pagination';
 import { Link } from 'react-router-dom';
 import setup from './Config/setup';
-import { useEffect, useState } from 'react';
+import { useEffect } from 'react';
 import dataStoreSlice, { async_actions } from './Config/store';
 
 function All() {
@@ -16,7 +16,7 @@ function All() {
 
     useEffect(() => {
         fetch_all_data();
-    }, [])
+    }, [fetch_all_data])
 
     console.log("data stor from user info front end", data_store?.data?.data);
 
@@ -52,7 +52,7 @@ function All() {
 
                                         <td>
                                             <span>
-                                            {item.title}
+                                                {item.title}
                                             </span>
                                         </td>
 
@@ -72,17 +72,17 @@ function All() {
                                                         {/* <li>
                                                             <Link to="/dashboard/task-variant/edit">Deactive</Link>
                                                         </li> */}
-                                                                                                             {
-                                                            item.status == 1 ?
+                                                        {
+                                                            item.status === 1 ?
                                                                 <li>
-                                                                    <a className="" href='#' onClick={(event) => { event.preventDefault(); delete_data(item.id) }}>
+                                                                    <a href="/#/" onClick={(event) => { event.preventDefault(); delete_data(item.id) }}>
 
                                                                         Deactive
                                                                     </a>
                                                                 </li>
                                                                 :
                                                                 <li>
-                                                                    <a className="" href='#' onClick={(event) => { event.preventDefault(); restore_data(item.id) }}>
+                                                                    <a href="/#/" onClick={(event) => { event.preventDefault(); restore_data(item.id) }}>
 
                                                                         Restore
                                                                     </a>

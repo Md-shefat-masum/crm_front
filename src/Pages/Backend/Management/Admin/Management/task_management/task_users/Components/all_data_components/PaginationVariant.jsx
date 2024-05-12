@@ -10,7 +10,7 @@ function PaginationVariant() {
     const data_store = useSelector((state) => state[setup.prefix]["singleData"])
     setup.set_async(async_actions, dataStoreSlice);
     setup.dispatch = useDispatch();
-    const { fetch_all_data, set_page_limit, get_users,set_page_variant_limit } = setup.actions;
+    const { get_users,set_page_variant_limit } = setup.actions;
     console.log('iddd', id);
     console.log('iddd', data_store);
     return (

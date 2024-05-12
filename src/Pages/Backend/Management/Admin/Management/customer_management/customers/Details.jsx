@@ -19,8 +19,8 @@ function Details() {
         return () => {
             set_data(null)
         };
-    }, []);
-    console.log("data_store from customer", data_store);
+    }, [get_users, id, set_data]);
+    // console.log("data_store from customer", data_store);
     if (data_store && data_store.customer) {
         const { id, full_name, email, contact_number, address, department, is_admitted, admission_date } = data_store?.customer;
         return (
@@ -88,17 +88,17 @@ function Details() {
                                         <div>Admission date</div>
                                         <div>:</div>
                                         <div>
-                                        {moment(admission_date).format('YYYY-MM-DD')}
+                                            {moment(admission_date).format('YYYY-MM-DD')}
                                         </div>
                                     </div>
                                     <div className="custom_form_el">
                                         <div>Is admitted</div>
                                         <div>:</div>
                                         <div>
-                                            {is_admitted==1 ? 'yes': 'no'}
+                                            {is_admitted === 1 ? 'yes' : 'no'}
                                         </div>
                                     </div>
-                                
+
                                 </div>
 
                             </div>

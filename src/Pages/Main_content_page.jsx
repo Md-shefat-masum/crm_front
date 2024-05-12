@@ -1,6 +1,5 @@
 import React from 'react'
 import { Outlet } from 'react-router-dom'
-import Demo_1 from './Demo_1'
 
 function Main_content_page(props) {
     let isSidebarOpen = props.isSidebarOpen;

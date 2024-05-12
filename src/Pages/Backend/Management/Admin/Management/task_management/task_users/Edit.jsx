@@ -1,18 +1,18 @@
 import React from 'react'
-import { useEffect, useState } from 'react'
+import { useEffect } from 'react'
 import { useDispatch, useSelector } from "react-redux";
 import dataStoreSlice, { async_actions } from './Config/store.js';
 import setup from "./Config/setup.js";
 import { useParams } from 'react-router-dom';
-import moment from 'moment/moment.js';
+// import moment from 'moment/moment.js';
 
 function Edit() {
   const { id } = useParams();
   setup.dispatch = useDispatch();
-  const data_store = useSelector((state) => state[setup.prefix]["singleData"])
+  // const data_store = useSelector((state) => state[setup.prefix]["singleData"])
   const data_store2 = useSelector((state) => state[setup.prefix]);
   setup.set_async(async_actions, dataStoreSlice);
-  const { get_users, set_data, update_data, fetch_all_user,get_only_user } = setup.actions;
+  const { set_data, fetch_all_user, get_only_user } = setup.actions;
 
   useEffect(() => {
     get_only_user(id);
@@ -21,9 +21,9 @@ function Edit() {
       document.getElementById('form-data')?.reset();
       set_data(null)
     };
-  }, []);
-  console.log('id from edit', data_store2);
-  console.log("data stor from user info front end", data_store2?.user);
+  }, [fetch_all_user, get_only_user, id, set_data]);
+  // console.log('id from edit', data_store2);
+  // console.log("data stor from user info front end", data_store2?.user);
 
   const handleSubmit = async (event) => {
     event.preventDefault();
@@ -39,7 +39,7 @@ function Edit() {
 
   };
   console.log('datra store from edit', data_store2?.singleTask);
-  if (data_store2 ) {
+  if (data_store2) {
     // const {  } = data_store2?.singleTask[0];
     return (
       <div className="card list_card">
@@ -59,7 +59,7 @@ function Edit() {
                 <div className="col-lg-8">
                   <div className="form-group mb-5">
 
-                  
+
                     <div className="custom_form_el">
                       <label htmlFor="">Task title</label>
                       <div>:</div>
@@ -71,25 +71,25 @@ function Edit() {
                       <div><input name="task_description" type="text" className="form-control" defaultValue={'taskdescription'} /></div>
                     </div>
                     <div className="custom_form_el">
-                    <label htmlFor="">End date</label>
-                    <div>:</div>
-                    {/* <div><input name="end_time" type="date" className="form-control" defaultValue={'taskend_time' ? 
+                      <label htmlFor="">End date</label>
+                      <div>:</div>
+                      {/* <div><input name="end_time" type="date" className="form-control" defaultValue={'taskend_time' ? 
                     moment(task?.end_time).format('YYYY-MM-DD')
                     :
                     moment().format('YYYY-MM-DD')
                    }/></div> */}
-                  </div>
+                    </div>
                     <div className="custom_form_el">
                       <label htmlFor="">User Id</label>
                       <div>:</div>
                       <div>
                         <select name='user_id' id="">
                           {
-                          data_store2?.user?.length &&data_store2?.user?.map(item => {
-                            return <option key={item.id} value={item.id}>{item.user_name}</option>
-                          })
-                        }
-                          
+                            data_store2?.user?.length && data_store2?.user?.map(item => {
+                              return <option key={item.id} value={item.id}>{item.user_name}</option>
+                            })
+                          }
+
                         </select>
                       </div>
                     </div>

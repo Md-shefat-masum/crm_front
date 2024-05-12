@@ -7,19 +7,18 @@ function Create() {
   const data_store = useSelector((state) => state[setup.prefix]);
   setup.dispatch = useDispatch();
   setup.set_async(async_actions, dataStoreSlice);
-  const { store_data,fetch_all_user } = setup.actions;
+  const { fetch_all_user } = setup.actions;
 
   useEffect(() => {
     fetch_all_user();
-}, [])
+  }, [fetch_all_user])
 
-console.log("data stor from user info front end", data_store?.user);
+  console.log("data stor from user info front end", data_store?.user);
 
   const handleSubmit = async (event) => {
     // let e = event;
     // console.log('some from create submit', event.target.vlaue);
     event.preventDefault();
-    let form_data = new FormData(event.target);
     // selectedRole.forEach((e, index) => {
     //   form_data.append(`role`, e.serial);
     // });
@@ -67,7 +66,7 @@ console.log("data stor from user info front end", data_store?.user);
                     <div>
                       <select name='user_id' id="">
                         {
-                         data_store?.user?.length && data_store?.user?.map(item => {
+                          data_store?.user?.length && data_store?.user?.map(item => {
                             return <option key={item.id} value={item.id}>{item.user_name}</option>
                           })
                         }

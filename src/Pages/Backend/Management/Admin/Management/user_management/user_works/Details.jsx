@@ -18,7 +18,7 @@ function Details() {
         return () => {
             set_data(null)
         };
-    }, []);
+    }, [get_users, set_data, id]);
 
     console.log(data_store, id);
     if (data_store) {

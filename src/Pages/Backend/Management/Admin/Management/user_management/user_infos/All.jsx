@@ -1,11 +1,11 @@
 import React from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import TableAction from './Components/all_data_components/TableAction';
+// import TableAction from './Components/all_data_components/TableAction';
 import TopPart from './Components/all_data_components/TopPart';
 import Pagination from './Components/all_data_components/Pagination';
 import { Link } from 'react-router-dom';
 import setup from './Config/setup';
-import { useEffect, useState } from 'react';
+import { useEffect } from 'react';
 import dataStoreSlice, { async_actions } from './Config/store';
 import moment from 'moment/moment';
 
@@ -14,11 +14,11 @@ function All() {
     const data_store = useSelector((state) => state[setup.prefix]);
     setup.dispatch = useDispatch();
     setup.set_async(async_actions, dataStoreSlice);
-    const { fetch_all_data , delete_data, restore_data} = setup.actions;
+    const { fetch_all_data, delete_data, restore_data } = setup.actions;
 
     useEffect(() => {
         fetch_all_data();
-    }, [])
+    }, [fetch_all_data])
 
     console.log("data stor from user info front end", data_store?.data?.data);
 
@@ -35,7 +35,7 @@ function All() {
                                 <th><input type="checkbox" className="form-check-input" /></th>
 
 
-                               
+
                                 <th className="cursor_n_resize edit_cursor_n_resize">
                                     User
                                 </th>
@@ -67,7 +67,7 @@ function All() {
                                 data_store?.data && data_store?.data?.data?.map(item => {
                                     return <tr key={item.id}>
                                         <td><input type="checkbox" className="form-check-input" /></td>
-                                        
+
                                         <td>
                                             <span>
                                                 {item?.user?.user_name}
@@ -96,7 +96,7 @@ function All() {
                                         </td>
                                         <td>
                                             <span>
-                                            {moment(item?.date_of_birth).format('YYYY-MM-DD')}
+                                                {moment(item?.date_of_birth).format('YYYY-MM-DD')}
                                             </span>
                                         </td>
 
@@ -114,17 +114,17 @@ function All() {
                                                             <Link to={`/dashboard/user-info/details/${item.id}`}>Details</Link>
                                                         </li>
                                                         {
-                                                            item.status == 1 ?
+                                                            item.status === 1 ?
                                                                 <li>
-                                                                    <a className="" href='#' onClick={(event) => { event.preventDefault(); delete_data(item.id) }}>
-                                                                       
+                                                                    <a href="/#/" onClick={(event) => { event.preventDefault(); delete_data(item.id) }}>
+
                                                                         Deactive
                                                                     </a>
                                                                 </li>
                                                                 :
                                                                 <li>
-                                                                    <a className="" href='#' onClick={(event) => { event.preventDefault(); restore_data(item.id) }}>
-                                                                       
+                                                                    <a href="/#/" onClick={(event) => { event.preventDefault(); restore_data(item.id) }}>
+
                                                                         Restore
                                                                     </a>
                                                                 </li>

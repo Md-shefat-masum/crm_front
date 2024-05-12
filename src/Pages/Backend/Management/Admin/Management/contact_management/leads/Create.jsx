@@ -14,9 +14,9 @@ function Create() {
   useEffect(() => {
     fetch_all_customer();
     fetch_all_user();
-  }, [])
+  }, [fetch_all_customer, fetch_all_user])
 
-  
+
   const handleSubmit = async (event) => {
     // let e = event;
     // console.log('some from create submit', event.target.vlaue);
@@ -40,25 +40,25 @@ function Create() {
           </a>
         </div>
       </div>
-      <form onSubmit={(event) =>handleSubmit(event)}>
+      <form onSubmit={(event) => handleSubmit(event)}>
         <div className="card-body">
           <div className="container py-5">
             <div className="row">
               <div className="col-lg-8">
                 <div className="form-group mb-5">
-                <div className="custom_form_el">
-                      <label htmlFor="">Customer </label>
-                      <div>:</div>
-                      <div>
-                        <select defaultValue={data_store?.singleData?.customer_id} name="customer_id" id="">
-                          {
-                            data_store?.customer?.length && data_store?.customer?.map(item => {
-                              return <option key={item.id} value={item.id}>{item.full_name}</option>
-                            })
-                          }
-                        </select>
-                      </div>
+                  <div className="custom_form_el">
+                    <label htmlFor="">Customer </label>
+                    <div>:</div>
+                    <div>
+                      <select defaultValue={data_store?.singleData?.customer_id} name="customer_id" id="">
+                        {
+                          data_store?.customer?.length && data_store?.customer?.map(item => {
+                            return <option key={item.id} value={item.id}>{item.full_name}</option>
+                          })
+                        }
+                      </select>
                     </div>
+                  </div>
                   <div className="custom_form_el">
                     <label htmlFor=""> Lead status</label>
                     <div>:</div>
@@ -70,18 +70,18 @@ function Create() {
                     <div><input name="lead_source" type="text" className="form-control" /></div>
                   </div>
                   <div className="custom_form_el">
-                      <label htmlFor="">Assigned to</label>
-                      <div>:</div>
-                      <div>
-                        <select defaultValue={data_store?.singleData?.assigned_to} name="assigned_to" id="">
-                          {
-                            data_store?.user?.length && data_store?.user?.map(item => {
-                              return <option key={item.id} value={item.id}>{item.user_name}</option>
-                            })
-                          }
-                        </select>
-                      </div>
+                    <label htmlFor="">Assigned to</label>
+                    <div>:</div>
+                    <div>
+                      <select defaultValue={data_store?.singleData?.assigned_to} name="assigned_to" id="">
+                        {
+                          data_store?.user?.length && data_store?.user?.map(item => {
+                            return <option key={item.id} value={item.id}>{item.user_name}</option>
+                          })
+                        }
+                      </select>
                     </div>
+                  </div>
                   <div className="custom_form_el">
                     <label htmlFor="">Qualification notes</label>
                     <div>:</div>

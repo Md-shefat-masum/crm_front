@@ -5,7 +5,7 @@ import Edit from "../Edit";
 import UserLayout from "../UserLayout";
 
 
-export default {
+const routes = {
     path: "user",
     element: <UserLayout></UserLayout>,
     children: [
@@ -27,3 +27,5 @@ export default {
         }   
     ]
 }
+
+export default routes;

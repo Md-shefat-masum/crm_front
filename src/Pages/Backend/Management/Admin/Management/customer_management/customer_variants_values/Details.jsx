@@ -19,10 +19,10 @@ function Details() {
         return () => {
             set_data(null)
         };
-    }, []);
+    }, [get_users, id, set_data]);
     console.log(data_store, id);
     if (data_store ) {
-        const {id, status,title, customer_variant, createdAt, updatedAt  } = data_store;
+        const {id, status,title, customer_variant, createdAt  } = data_store;
   return (
     <div className='card list_card'>
         <div className="card-header ">
@@ -67,7 +67,7 @@ function Details() {
                                 <div>Status</div>
                                 <div>:</div>
                                 <div>
-                                    {status == 1 ? "true" : "false"}
+                                    {status === 1 ? "true" : "false"}
                                 </div>
                             </div>
                             <div className="custom_form_el">

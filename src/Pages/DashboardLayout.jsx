@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react'
 import Header from './Header';
 import Sidebar from './Sidebar';
-import Main_content_page from './Main_content_page';
+import MainContentPage from './Main_content_page';
 import axios from 'axios';
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
@@ -20,7 +20,7 @@ function Layout() {
             axios.interceptors.response.use(function (response) {
                 return response;
             }, function (error) {
-                if (error.response.status == 401) {
+                if (error.response.status === 401) {
                     localStorage.removeItem('token');
                     // window.location.href = "#/login";
                     return navigate("/login");
@@ -31,7 +31,7 @@ function Layout() {
             // window.location.href = "#/login";
             return navigate("/login");
         }
-    }, [])
+    }, [navigate])
     const [isSidebarOpen, setSidebarOpen] = useState(true)
     // console.log('issidebaropen', isSidebarOpen);
 
@@ -46,7 +46,7 @@ function Layout() {
 
                     <div className='sidebar_and_contentt'>
                         <Sidebar isSidebarOpen={isSidebarOpen} setSidebarOpen={setSidebarOpen} />
-                        <Main_content_page isSidebarOpen={isSidebarOpen} />
+                        <MainContentPage isSidebarOpen={isSidebarOpen} />
                     </div>
                 </div>
 

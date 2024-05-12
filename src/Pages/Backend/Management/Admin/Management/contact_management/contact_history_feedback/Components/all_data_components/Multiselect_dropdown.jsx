@@ -7,7 +7,7 @@ const MultiselectDropdown = (props) => {
     const [data, setData] = useState([]);
     const [selectedData, setSelectedData] = useState([]);
     const [taskOpen, setTaskOpen] = useState(false);
-    const [searchQuery, setSearchQuery] = useState("");
+    // const [searchQuery, setSearchQuery] = useState("");
 
     // useEffect(() => {
     //     setTaskOpen(props.taskOpen)
@@ -17,34 +17,34 @@ const MultiselectDropdown = (props) => {
     useEffect(() => {
         setData([...props.data]);
         console.log(data);
-        
-    }, [props.data]);
-    
+
+    }, [data, props.data]);
+
     useEffect(() => {
-        if(props.selectedData?.length){
+        if (props.selectedData?.length) {
             setSelectedData([...props.selectedData]);
         }
-    }, []);
+    }, [props.selectedData]);
 
     useEffect(() => {
         props.setSelectedData(selectedData)
         console.log(selectedData);
-    }, [selectedData]);
+    }, [props, selectedData]);
 
     console.log(selectedData);
     console.log(data);
     function addItem(item) {
         console.log(item);
-        let newData = selectedData?.find((i) => i.serial == item.serial);
+        let newData = selectedData?.find((i) => i.serial === item.serial);
 
         if (newData) {
             // console.log(selectedData);
             // console.log(item.id);
-            let uniqueData = selectedData.filter((i) => i._id != item._id);
+            let uniqueData = selectedData.filter((i) => i._id !== item._id);
             setSelectedData([...uniqueData]);
             // setSelectedData(selectedData.splice(item.id, 0));
         } else {
-            let searchData = data.find((i) => i._id == item._id);
+            let searchData = data.find((i) => i._id === item._id);
             setSelectedData([...selectedData, searchData]);
             // console.log(searchData);
             // console.log(selectedData, setSelectedData([searchData]))

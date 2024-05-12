@@ -82,7 +82,7 @@ function Details() {
                                     <div>Is complete</div>
                                     <div>:</div>
                                     <div>
-                                        {is_complete == 1 ? "yes" : "no"}
+                                        {is_complete === 1 ? "yes" : "no"}
                                     </div>
                                 </div>
                                 <div className="custom_form_el">

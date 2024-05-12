@@ -94,7 +94,7 @@ function All() {
                                         <span>
                                                 {/* {item?.is_complete == false ? 'incomplete' : 'complete'} */}
                                                 {
-                                                    item.is_complete == 1 ?
+                                                    item.is_complete === 1 ?
 
                                                         <a className="text-success" >
 
@@ -132,16 +132,16 @@ function All() {
                                                             <Link to="/dashboard/calender-event/edit">Deactive</Link>
                                                         </li> */}
                                                                               {
-                                                            item.status == 1 ?
+                                                            item.status === 1 ?
                                                                 <li>
-                                                                    <a className="" href='#' onClick={(event) => { event.preventDefault(); delete_data(item.id) }}>
+                                                                    <a href="/#/" onClick={(event) => { event.preventDefault(); delete_data(item.id) }}>
 
                                                                         Deactive
                                                                     </a>
                                                                 </li>
                                                                 :
                                                                 <li>
-                                                                    <a className="" href='#' onClick={(event) => { event.preventDefault(); restore_data(item.id) }}>
+                                                                    <a href="/#/" onClick={(event) => { event.preventDefault(); restore_data(item.id) }}>
 
                                                                         Restore
                                                                     </a>

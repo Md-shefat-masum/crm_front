@@ -1,5 +1,5 @@
 import React from 'react'
-import { useEffect, useState } from 'react'
+import { useEffect } from 'react'
 import { useDispatch, useSelector } from "react-redux";
 import dataStoreSlice, { async_actions } from './Config/store.js';
 import setup from "./Config/setup.js";
@@ -20,7 +20,7 @@ function Edit() {
       document.getElementById('form-data')?.reset();
       set_data(null)
     };
-  }, []);
+  }, [get_users, id, set_data]);
   console.log('id from edit', id);
 
   const handleSubmit = async (event) => {
@@ -38,7 +38,7 @@ function Edit() {
   };
   console.log('datra store from edit', data_store?.customer);
   if (data_store && data_store.customer) {
-    const { full_name, address, email, contact_number, uuid, id,is_admitted, department, admission_date } = data_store?.customer;
+    const { full_name, address, email, contact_number, is_admitted, department, admission_date } = data_store?.customer;
     return (
       <div className="card list_card">
         <div className="card-header ">
@@ -56,7 +56,7 @@ function Edit() {
               <div className="row">
                 <div className="col-lg-8">
                   <div className="form-group mb-5">
-                    
+
                     <div className="custom_form_el">
                       <label htmlFor="">Full name</label>
                       <div>:</div>
@@ -90,7 +90,7 @@ function Edit() {
                     <div className="custom_form_el">
                       <label htmlFor="">Is Admitted</label>
                       <div>:</div>
-                      <div><input name="is_admitted" type="number" className="form-control" defaultValue={is_admitted == 1 ? 1 : 0} /></div>
+                      <div><input name="is_admitted" type="number" className="form-control" defaultValue={is_admitted === 1 ? 1 : 0} /></div>
                     </div>
 
                   </div>
